@@ -5,7 +5,14 @@ import * as Yup from "yup"
 const Home = () => {
   return (
     <>
-      <Formik></Formik>
+      <Formik
+        initialValues={{
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+        }}
+      ></Formik>
     </>
   )
 }
