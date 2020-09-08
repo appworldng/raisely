@@ -2,7 +2,9 @@ import React from "react"
 import { Formik, useField } from "formik"
 import * as Yup from "yup"
 
-const TextField = ({ label, ...props }) => {}
+const TextField = ({ label, ...props }) => {
+  const [field, meta] = useField(props)
+}
 
 const Home = () => {
   return (
