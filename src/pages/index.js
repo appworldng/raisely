@@ -12,6 +12,20 @@ const Home = () => {
           email: "",
           password: "",
         }}
+        validationScheme={Yup.object({
+          firstName: Yup.string()
+            .min(2, "Must be at least 2 characters")
+            .required("Required"),
+          lastName: Yup.string()
+            .min(2, "Must be at least 2 characters")
+            .required("Required"),
+          email: Yup.string()
+            .email("Invalid e-mail address")
+            .required("Required"),
+          Password: Yup.string()
+            .min(6, "Must be at least 6 characters")
+            .required("Required"),
+        })}
       ></Formik>
     </>
   )
