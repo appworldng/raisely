@@ -4,6 +4,17 @@ import * as Yup from "yup"
 
 const TextField = ({ label, ...props }) => {
   const [field, meta] = useField(props)
+  return (
+    <>
+      <div className="form-group">
+        <label htmlFor={props.id || props.name}>{label}</label>
+        <input className="form-control" {...field} {...props} />
+        {meta.touched && meta.error ? (
+          <small className="form-text text-danger">{meta.error}</small>
+        ) : null}
+      </div>
+    </>
+  )
 }
 
 const Home = () => {
