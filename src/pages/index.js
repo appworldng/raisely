@@ -72,7 +72,7 @@ const Home = () => {
                   label="E-mail Address"
                   name="email"
                   type="email"
-                  placeholder="chigozieorunta@yahoo.com"
+                  placeholder="john@doe.com"
                 />
               </Col>
               <Col>
