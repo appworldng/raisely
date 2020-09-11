@@ -1,7 +1,7 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 
-const Layout = () => {
+const Layout = props => {
   return (
     <>
       <section className="d-flex vh-100 align-items-center">
