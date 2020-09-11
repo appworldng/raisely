@@ -1,7 +1,8 @@
 import React from "react"
-import { Container, Row, Col } from "react-bootstrap"
 import { Formik, useField, Form } from "formik"
 import * as Yup from "yup"
+
+import Layout from "../components/layout"
 
 const TextField = ({ label, ...props }) => {
   const [field, meta] = useField(props)
