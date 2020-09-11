@@ -47,7 +47,7 @@ const Home = () => {
           })}
         >
           <Form>
-            <h1 className="text-center">Sign Up</h1>
+            <h1 className="text-center mb-3">Sign Up</h1>
             <Row className="mb-3">
               <Col>
                 <TextField
