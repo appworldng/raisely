@@ -49,7 +49,7 @@ const Home = () => {
           <Form>
             <h1 className="text-center mb-5">Sign Up</h1>
             <Row className="mb-3">
-              <Col>
+              <Col sm={6}>
                 <TextField
                   label="First Name"
                   name="firstName"
@@ -57,7 +57,7 @@ const Home = () => {
                   placeholder="John"
                 />
               </Col>
-              <Col>
+              <Col sm={6}>
                 <TextField
                   label="Last Name"
                   name="lastName"
@@ -67,7 +67,7 @@ const Home = () => {
               </Col>
             </Row>
             <Row className="mb-3">
-              <Col>
+              <Col sm={6}>
                 <TextField
                   label="E-mail Address"
                   name="email"
@@ -75,7 +75,7 @@ const Home = () => {
                   placeholder="john@doe.com"
                 />
               </Col>
-              <Col>
+              <Col sm={6}>
                 <TextField
                   label="Password"
                   name="password"
