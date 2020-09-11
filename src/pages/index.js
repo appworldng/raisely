@@ -1,4 +1,5 @@
 import React from "react"
+import { Row, Col } from "react-bootstrap"
 import { Formik, useField, Form } from "formik"
 import * as Yup from "yup"
 
@@ -44,7 +45,46 @@ const Home = () => {
               .min(6, "Must be at least 6 characters")
               .required("Required"),
           })}
-        ></Formik>
+        >
+          <Form>
+            <Row className="mb-3">
+              <Col>
+                <TextField
+                  label="First Name"
+                  name="firstName"
+                  type="text"
+                  placeholder="John"
+                />
+              </Col>
+              <Col>
+                <TextField
+                  label="Last Name"
+                  name="lastName"
+                  type="text"
+                  placeholder="Doe"
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <TextField
+                  label="E-mail Address"
+                  name="email"
+                  type="email"
+                  placeholder="chigozieorunta@yahoo.com"
+                />
+              </Col>
+              <Col>
+                <TextField
+                  label="Password"
+                  name="password"
+                  type="password"
+                  placeholder="********"
+                />
+              </Col>
+            </Row>
+          </Form>
+        </Formik>
       </Layout>
     </>
   )
