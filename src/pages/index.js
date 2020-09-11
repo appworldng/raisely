@@ -66,7 +66,7 @@ const Home = () => {
                 />
               </Col>
             </Row>
-            <Row>
+            <Row className="mb-3">
               <Col>
                 <TextField
                   label="E-mail Address"
@@ -84,6 +84,9 @@ const Home = () => {
                 />
               </Col>
             </Row>
+            <button className="btn btn-primary" type="submit">
+              Sign Up
+            </button>
           </Form>
         </Formik>
       </Layout>
