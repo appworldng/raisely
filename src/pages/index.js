@@ -63,7 +63,6 @@ const Home = () => {
               })
               .catch(err => {
                 setStatus("Something went wrong with your sign up process...")
-                console.log(err)
               })
 
             setTimeout(() => {
