@@ -21,14 +21,14 @@ const TextField = ({ label, ...props }) => {
   )
 }
 
-const InitialValues = {
+const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
   password: "",
 }
 
-const ValidationSchema = Yup.object({
+const validationSchema = Yup.object({
   firstName: Yup.string()
     .min(2, "Must be at least 2 characters")
     .required("Required"),
@@ -50,8 +50,8 @@ const Home = () => {
     <>
       <Layout>
         <Formik
-          initialValues={InitialValues}
-          validationSchema={ValidationSchema}
+          initialValues={initialValues}
+          validationSchema={validationSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
             const data = {
               campaignUuid: "46aa3270-d2ee-11ea-a9f0-e9a68ccff42a",
