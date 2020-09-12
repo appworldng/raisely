@@ -46,9 +46,22 @@ const Home = () => {
               .min(6, "Must be at least 6 characters")
               .required("Required"),
           })}
-          onSubmit={(values, { setSubmitting, resetForm }) => {
+          onSubmit={async (values, { setSubmitting, resetForm }) => {
+            const data = {
+              campaignUuid: "46aa3270-d2ee-11ea-a9f0-e9a68ccff42a",
+              data: values,
+            }
+
+            await axios
+              .post("https://api.raisely.com/v3/signup", data)
+              .then(res => {
+                console.log(res)
+              })
+              .catch(err => {
+                console.log(err)
+              })
+
             setTimeout(() => {
-              alert(JSON.stringify(values, null, 2))
               resetForm()
               setSubmitting(false)
             }, 3000)
