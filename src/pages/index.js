@@ -21,6 +21,26 @@ const TextField = ({ label, ...props }) => {
   )
 }
 
+const InitialValues = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+}
+
+const ValidationSchema = Yup.object({
+  firstName: Yup.string()
+    .min(2, "Must be at least 2 characters")
+    .required("Required"),
+  lastName: Yup.string()
+    .min(2, "Must be at least 2 characters")
+    .required("Required"),
+  email: Yup.string().email("Invalid e-mail address").required("Required"),
+  password: Yup.string()
+    .min(6, "Must be at least 6 characters")
+    .required("Required"),
+})
+
 const Home = () => {
   const [status, setStatus] = useState(
     "Enter in your sign up details and let's get you started"
@@ -30,26 +50,8 @@ const Home = () => {
     <>
       <Layout>
         <Formik
-          initialValues={{
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: "",
-          }}
-          validationSchema={Yup.object({
-            firstName: Yup.string()
-              .min(2, "Must be at least 2 characters")
-              .required("Required"),
-            lastName: Yup.string()
-              .min(2, "Must be at least 2 characters")
-              .required("Required"),
-            email: Yup.string()
-              .email("Invalid e-mail address")
-              .required("Required"),
-            password: Yup.string()
-              .min(6, "Must be at least 6 characters")
-              .required("Required"),
-          })}
+          initialValues={InitialValues}
+          validationSchema={ValidationSchema}
           onSubmit={async (values, { setSubmitting, resetForm }) => {
             const data = {
               campaignUuid: "46aa3270-d2ee-11ea-a9f0-e9a68ccff42a",
