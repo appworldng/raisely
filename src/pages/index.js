@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Row, Col } from "react-bootstrap"
 import { Formik, useField, Form } from "formik"
 import * as Yup from "yup"
-import axios from "axios"
+import Axios from "axios"
 
 import Layout from "../components/layout"
 
@@ -46,32 +46,33 @@ const Home = () => {
     "Enter in your sign up details and let's get you started"
   )
 
+  const postForm = async (values, { setSubmitting, resetForm }) => {
+    const data = {
+      campaignUuid: "46aa3270-d2ee-11ea-a9f0-e9a68ccff42a",
+      data: values,
+    }
+
+    await Axios.post("https://api.raisely.com/v3/signup", data)
+      .then(res => {
+        setStatus("Thank you for signing up with us...")
+      })
+      .catch(err => {
+        setStatus("Something went wrong with your sign up process...")
+      })
+
+    setTimeout(() => {
+      resetForm()
+      setSubmitting(false)
+    }, 1000)
+  }
+
   return (
     <>
       <Layout>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={async (values, { setSubmitting, resetForm }) => {
-            const data = {
-              campaignUuid: "46aa3270-d2ee-11ea-a9f0-e9a68ccff42a",
-              data: values,
-            }
-
-            await axios
-              .post("https://api.raisely.com/v3/signup", data)
-              .then(res => {
-                setStatus("Thank you for signing up with us...")
-              })
-              .catch(err => {
-                setStatus("Something went wrong with your sign up process...")
-              })
-
-            setTimeout(() => {
-              resetForm()
-              setSubmitting(false)
-            }, 3000)
-          }}
+          onSubmit={postForm}
         >
           {props => (
             <Form>
