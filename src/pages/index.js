@@ -31,7 +31,7 @@ const Home = () => {
             email: "",
             password: "",
           }}
-          validationScheme={Yup.object({
+          validationSchema={Yup.object({
             firstName: Yup.string()
               .min(2, "Must be at least 2 characters")
               .required("Required"),
