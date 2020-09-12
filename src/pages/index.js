@@ -46,49 +46,58 @@ const Home = () => {
               .min(6, "Must be at least 6 characters")
               .required("Required"),
           })}
+          onSubmit={(values, { setSubmitting, resetForm }) => {
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2))
+              resetForm()
+              setSubmitting(false)
+            }, 3000)
+          }}
         >
-          <Form>
-            <h1 className="text-center mb-5">Sign Up</h1>
-            <Row className="mb-3">
-              <Col sm={6}>
-                <TextField
-                  label="First Name"
-                  name="firstName"
-                  type="text"
-                  placeholder="John"
-                />
-              </Col>
-              <Col sm={6}>
-                <TextField
-                  label="Last Name"
-                  name="lastName"
-                  type="text"
-                  placeholder="Doe"
-                />
-              </Col>
-            </Row>
-            <Row className="mb-3">
-              <Col sm={6}>
-                <TextField
-                  label="E-mail Address"
-                  name="email"
-                  type="email"
-                  placeholder="john@doe.com"
-                />
-              </Col>
-              <Col sm={6}>
-                <TextField
-                  label="Password"
-                  name="password"
-                  type="password"
-                  placeholder="********"
-                />
-              </Col>
-            </Row>
-            <button className="btn btn-primary" type="submit">
-              Sign Up
-            </button>
-          </Form>
+          {props => (
+            <Form>
+              <h1 className="text-center mb-5">Sign Up</h1>
+              <Row className="mb-3">
+                <Col sm={6}>
+                  <TextField
+                    label="First Name"
+                    name="firstName"
+                    type="text"
+                    placeholder="John"
+                  />
+                </Col>
+                <Col sm={6}>
+                  <TextField
+                    label="Last Name"
+                    name="lastName"
+                    type="text"
+                    placeholder="Doe"
+                  />
+                </Col>
+              </Row>
+              <Row className="mb-3">
+                <Col sm={6}>
+                  <TextField
+                    label="E-mail Address"
+                    name="email"
+                    type="email"
+                    placeholder="john@doe.com"
+                  />
+                </Col>
+                <Col sm={6}>
+                  <TextField
+                    label="Password"
+                    name="password"
+                    type="password"
+                    placeholder="********"
+                  />
+                </Col>
+              </Row>
+              <button className="btn btn-primary" type="submit">
+                {props.isSubmitting ? "Loading..." : "Sign Up"}
+              </button>
+            </Form>
+          )}
         </Formik>
       </Layout>
     </>
