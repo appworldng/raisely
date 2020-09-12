@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Row, Col } from "react-bootstrap"
 import { Formik, useField, Form } from "formik"
 import * as Yup from "yup"
@@ -22,6 +22,10 @@ const TextField = ({ label, ...props }) => {
 }
 
 const Home = () => {
+  const [status, setStatus] = useState(
+    "Enter in your sign up details and let's get you started"
+  )
+
   return (
     <>
       <Layout>
@@ -55,9 +59,10 @@ const Home = () => {
             await axios
               .post("https://api.raisely.com/v3/signup", data)
               .then(res => {
-                console.log(res)
+                setStatus("Thank you for signing up with us...")
               })
               .catch(err => {
+                setStatus("Something went wrong with your sign up process...")
                 console.log(err)
               })
 
@@ -69,7 +74,8 @@ const Home = () => {
         >
           {props => (
             <Form>
-              <h1 className="text-center mb-5">Sign Up</h1>
+              <h1 className="text-center mb-3">Sign Up</h1>
+              <p className="text-center mb-4">{status}</p>
               <Row className="mb-3">
                 <Col sm={6}>
                   <TextField
