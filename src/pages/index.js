@@ -42,7 +42,7 @@ const Home = () => {
             email: Yup.string()
               .email("Invalid e-mail address")
               .required("Required"),
-            Password: Yup.string()
+            password: Yup.string()
               .min(6, "Must be at least 6 characters")
               .required("Required"),
           })}
